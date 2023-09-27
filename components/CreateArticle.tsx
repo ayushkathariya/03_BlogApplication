@@ -15,12 +15,14 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { FcAddImage } from "react-icons/fc";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 const CreateArticle: FC = () => {
   const [caption, setCaption] = useState("");
   const [message, setMessage] = useState("");
   const [image, setImage] = useState<any>("");
   const router = useRouter();
+  const { status } = useSession();
 
   const handleImageChange = (e: any) => {
     const file = e.target.files[0];
@@ -60,7 +62,15 @@ const CreateArticle: FC = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button>Create Article</Button>
+        <Button
+          onClick={() => {
+            if (status === "unauthenticated") {
+              router.push("/auth/signin");
+            }
+          }}
+        >
+          Create Article
+        </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <form

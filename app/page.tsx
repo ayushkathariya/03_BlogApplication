@@ -7,17 +7,8 @@ import Pagination from "@/components/Pagination";
 import { SESSION_TOKEN_NAME } from "@/lib/constants";
 import Footer from "@/components/Footer";
 import CreateArticle from "@/components/CreateArticle";
-import { getAuthSession } from "@/lib/auth";
-import { useRouter } from "next/navigation";
 
 const Home: FC = async () => {
-  const router = useRouter();
-
-  const session = await getAuthSession();
-  if (!session) {
-    router.push("/auth/signin");
-  }
-
   const fetchData = async () => {
     const SESSION_TOKEN_VALUE = cookies().get(SESSION_TOKEN_NAME)?.value;
     const res = await fetch(
