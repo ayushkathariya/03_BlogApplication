@@ -6,6 +6,7 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { FcLike } from "react-icons/fc";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
+import Image from "next/image";
 
 type ArticleProps = {
   id: string;
@@ -52,11 +53,9 @@ const Article: FC<ArticleProps> = ({
           <p>{timeAgo}</p>
         </span>
       </span>
-      <img
-        src={image}
-        alt="photo"
-        className="w-full mx-auto mt-2 rounded-lg cursor-pointer h-fit"
-      />
+      <div>
+        <Image src={image} alt="photo" width={500} height={500} />
+      </div>
       <div className="px-2 cursor-pointer">
         <h2 className="mt-2 text-lg font-bold">{caption}</h2>
         <p className="font-medium">{message}</p>
