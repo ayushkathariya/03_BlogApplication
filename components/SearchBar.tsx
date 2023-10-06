@@ -10,7 +10,7 @@ const SearchBar: FC = () => {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     try {
       event.preventDefault();
-      alert(article);
+      alert("This feature is not available right now. It is in beta.");
     } catch (error) {
       console.log(error);
     } finally {

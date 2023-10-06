@@ -43,7 +43,7 @@ const Article: FC<ArticleProps> = ({
   };
 
   return (
-    <div className="border w-[22rem] sm:w-[16rem] md:w-[20rem] lg:w-[18rem] xl:w-[22rem] rounded-lg py-2">
+    <div className="border w-[22rem] sm:w-[16rem] md:w-[20rem] lg:w-[18rem] xl:w-[22rem] h-fit rounded-lg py-2">
       <span className="flex items-center justify-between">
         <span className="flex items-center gap-3 px-2">
           <AvatarCard image={user.avatar} />

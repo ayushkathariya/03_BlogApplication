@@ -38,17 +38,20 @@ const CreateArticle: FC = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     try {
       e.preventDefault();
-      await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/articles`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "Application/json",
-        },
-        body: JSON.stringify({
-          caption,
-          message,
-          image,
-        }),
-      });
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/articles`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "Application/json",
+          },
+          body: JSON.stringify({
+            caption,
+            message,
+            image,
+          }),
+        }
+      );
       router.refresh();
     } catch (error) {
       console.log("error");
