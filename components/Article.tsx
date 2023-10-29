@@ -54,7 +54,13 @@ const Article: FC<ArticleProps> = ({
         </span>
       </span>
       <div>
-        <Image src={image} alt="photo" width={500} height={500} />
+        <Image
+          src={image}
+          alt="photo"
+          width={500}
+          height={500}
+          className="h-96 bg-cover"
+        />
       </div>
       <div className="px-2 cursor-pointer">
         <h2 className="mt-2 text-lg font-bold">{caption}</h2>
